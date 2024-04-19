@@ -2,6 +2,7 @@ FROM elixir:1.16.1
 
 WORKDIR /app
 COPY . .
+
 ENV MIX_ENV docker
 
 # Install debian packages
@@ -15,4 +16,5 @@ CMD mix local.hex --force && \
     mix deps.get && \
     mix compile && \
     mix ecto.migrate && \
+    mix hydrate && \ 
     mix phx.server
