@@ -7,6 +7,7 @@
     - [The Other Way...](#the-other-way)
       - [Postgres](#postgres)
       - [Demeter Service](#demeter-service)
+      - [Mix Hydrate Task](#mix-hydrate-task)
   - [Testing](#testing)
   - [Thoughts](#thoughts)
 
@@ -84,6 +85,10 @@ Run the following from the root of this project
 Nice YOLO! 😎😎😎
 
 If that completes without errors you should be good to go. You should be able to hit http://localhost:4000 in your browser and see a bunch of foodtrucks 🚚
+
+#### Mix Hydrate Task
+
+This project contains a mix task for hydrating the database with fresh foodtruck data. This task can be run with the command `mix hydrate` and can be run any time wether the service is running or not.
 
 ## Testing
 
