@@ -20,7 +20,7 @@ Demeter is a simple web app built with [Elixir](https://elixir-lang.org/) and [P
 
 Favorites can be selected and deselected by clicking on the row containing the foodtruck they want to save. Once selected, favorites can be identified by the blue star in the far left of the row. On page load favorites will be grouped first at the top of the list and then in ascending alphabetical order by name.
 
-The app also provides a mix task to hydrate the database with the most recent open data available by running `mix hydrate` from the root of this project. The Hydrator will update all existing foodtrucks while preserving any favorites that have already been saved. Newly discovered foodtrucks will be added to the database, and missing foodtrucks will not be deleted.
+The app also provides a mix task to hydrate the database with the most recent open data available by running `mix hydrate` from the root of this project. The hydrator will update all existing foodtrucks while preserving any favorites that have already been saved. Newly discovered foodtrucks will be added to the database, and missing foodtrucks will not be deleted.
 
 ![](https://raw.githubusercontent.com/BenGlasser/demeter/c9f56f70e420f34e468f125a18a49ce54e1686f1/assets/Demeter%20Demo.gif)
 
