@@ -6,7 +6,7 @@
     - [The Docker Way...](#the-docker-way)
     - [The Other Way...](#the-other-way)
       - [Postgres](#postgres)
-      - [Backend](#backend)
+      - [Demeter Service](#demeter-service)
   - [Testing](#testing)
   - [Thoughts](#thoughts)
 
@@ -66,7 +66,7 @@ Fire up postgres on your machine however you choose to do that, and ensure the f
 
 if this command works `psql -h localhost -U postgres` then you're probably good to go.
 
-#### Backend
+#### Demeter Service
 
 Now we need to fire up the backend.
 
