@@ -76,7 +76,7 @@ If you have docker installed run this command from the root of this project
 docker compose up -d
 ```
 
-then navigate to http://localhost and your done. Kick back and enjoy life on easy street as you bask in the glory of a comprehensive list of over 400 foodtrucks which can be found roaming the streets of San Fransisco... who's hungry?!
+then navigate to http://localhost and you're done. Kick back and enjoy life on easy street as you bask in the glory of a comprehensive list of over 400 foodtrucks which can be found roaming the streets of San Fransisco... who's hungry?!
 
 ![](https://i.giphy.com/yidUzHnBk32Um9aMMw.webp)
 
