@@ -160,7 +160,7 @@ defmodule DemeterWeb.CoreComponents do
                 "p-5 relative",
                 @row_click && "hover:cursor-pointer",
                 i == 0 && "text-center",
-                i == 0 && @row_item.(row) |> elem(1) |> Map.get(:favorite) && "text-lg"
+                i == 0 && @row_item.(row) |> elem(1) |> Map.get(:favorite) && "text-lg text-cyan-500"
               ]}
             >
               <div class="">
@@ -172,7 +172,7 @@ defmodule DemeterWeb.CoreComponents do
                   group-hover:bg-gray-600
                   sm:rounded-xl
                 " />
-                <span class={["relative", i == 0 && "font-semibold text-gray-200"]}>
+                <span class={["relative", i == 0 && "font-semibold"]}>
                   <%= render_slot(col, @row_item.(row)) %>
                 </span>
               </div>
