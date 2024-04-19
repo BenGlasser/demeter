@@ -46,7 +46,7 @@ from the project's root directory
 
 If you have a recent version of `docker` installed or you have `docker-compose` installed this will make getting up and running very easy.
 
-If you do not have 'docker-compose' or your docker toolchain does notr include compose you can still run docker manually with the included Dockerfile.
+If you do not have 'docker-compose' or your docker toolchain does not include compose you can still run docker manually with the included Dockerfile.
 
 If you don't have docker installed at all, then I humbly offer this piece of wisdom I often hear from my son when we play Fortnite together, "_Git gud, bruh!_" 😜😎
 
