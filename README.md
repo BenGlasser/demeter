@@ -98,7 +98,7 @@ if this command works `psql -h localhost -U postgres` then you're probably good 
 
 #### Demeter Service
 
-Now we need to fire up the backend.
+Now we need to fire up the the webapp.
 
 Run the following from the root of this project
 
