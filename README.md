@@ -2,6 +2,9 @@
 
 - [Table of Contents](#table-of-contents)
 - [Demeter](#demeter)
+  - [Dependencies](#dependencies)
+    - [Elixir and Erlang](#elixir-and-erlang)
+    - [Docker](#docker)
   - [Building and running things](#building-and-running-things)
     - [The Docker Way...](#the-docker-way)
     - [The Other Way...](#the-other-way)
@@ -20,6 +23,32 @@ Favorites can be selected and deselected by clicking on the row containing the f
 The app also provides a mix task to hydrate the database with the most recent open data available by running `mix hydrate` from the root of this project. The Hydrator will update all existing foodtrucks while preserving any favorites that have already been saved. Newly discovered foodtrucks will be added to the database, and missing foodtrucks will not be deleted.
 
 ![](https://raw.githubusercontent.com/BenGlasser/demeter/c9f56f70e420f34e468f125a18a49ce54e1686f1/assets/Demeter%20Demo.gif)
+
+## Dependencies
+
+This project depends on the following versions of elixir and erlang
+
+- elixir 1.16.1-otp-26
+- erlang 26.2.1
+- docker
+
+### Elixir and Erlang
+
+If you use `asdf` with the elixir and erlang plugins, there is a `.tool-versions` file in the root of this project which will install the required language dependencies by running
+
+```
+asdf install
+```
+
+from the project's root directory
+
+### Docker
+
+If you have a recent version of `docker` installed or you have `docker-compose` installed this will make getting up and running very easy.
+
+If you do not have 'docker-compose' or your docker toolchain does notr include compose you can still run docker manually with the included Dockerfile.
+
+If you don't have docker installed at all, then I humbly offer this piece of wisdom I often hear from my son when we play Fortnite together, "_Git gud, bruh!_" 😜😎
 
 ## Building and running things
 
@@ -102,7 +131,7 @@ Currently all the tests are passing. If they don't pass for you, all I can say i
 There are several improvements that could be made to this project to improve performance and user experience.
 
 1.  the first improvement on our list would be to live update the foodtruck list upon favorite selection an deselection. Currently, foodtrucks are grouped by favorite so upon first load all favorites are easy to find at the top of the list. As a user scrolls down the list selecting favorites newly selected favorites become dispersed throughout the list because of the fact that clicking on a row triggers an update to the view only for the selected foodtruck but not the list as a whole. This could be achieved server-side by altering the return value so that the entire foodtruck list is refetched and sorted before updating the stream in [`DemeterWeb.FoodtruckLive.Index.handle_event/3`](https://github.com/BenGlasser/demeter/blob/c9f56f70e420f34e468f125a18a49ce54e1686f1/lib/demeter_web/live/foodtruck_live/index.ex#L17). However, this would not be very efficient since we already have all the foodtruck data client-side. A simpler and more efficient approach would be to re-sort the list on the client once the stream is updated.
-2.  Another improvement I'd like to make is to the hydration task. Currently this task only updates foodtrucks returned from the Open Data API call. This means that the database will only ever grow in response to hyudration while stale foodtrucks are left to cruft up the database. To remedy this it might be useful to diff the results from the API call with the existing foodtruck data and delete any rows which don't have a corresponding value in the response from the Open Data call.
+2.  Another improvement I'd like to make is to the hydration task. Currently this task only updates foodtrucks returned from the Open Data API call. This means that the database will only ever grow in response to hydration while stale foodtrucks are left to cruft up the database. To remedy this it might be useful to diff the results from the API call with the existing foodtruck data and delete any rows which don't have a corresponding value in the response from the Open Data call.
 3.  While beyond the scope of this project, the `mix hydrate` task could also be improved by automating the hydration task. Doing this at regular intervals would ensure that the app is always serving fresh data. There are many ways to do this such as:
     1.  fetching the data on every initial page load which would ensure the freshest data everytime the app is visited, but could impact initial load times depending on how many foodtrucks are returned.
     2.  creating a cron job to run the mix task at regular intervals. This would maximize control over the data refresh, but could increase the risk of serving stale data if the refresh interval is to big.
