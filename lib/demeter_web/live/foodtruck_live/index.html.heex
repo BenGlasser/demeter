@@ -1,0 +1,24 @@
+<.header>
+  Welcome to the Shrine of Demeter
+  <:subtitle>Find your favorite foodtrucks in San Fransisco!</:subtitle>
+</.header>
+
+<.table
+  id="foodtrucks"
+  rows={@streams.foodtrucks}
+  row_click={fn {_id, foodtruck} -> JS.push("toggle_favorite", value: foodtruck) end}
+>
+  <:col :let={{_id, foodtruck}} label="Favorite">
+    <%= case foodtruck.favorite do
+      true -> "★"
+      false -> "☆"
+    end %>
+  </:col>
+  <:col :let={{_id, foodtruck}} label="Name"><%= foodtruck.name %></:col>
+  <:col :let={{_id, foodtruck}} label="Address"><%= foodtruck.address %></:col>
+  <:col :let={{_id, foodtruck}} label="Fooditems"><%= foodtruck.fooditems %></:col>
+</.table>
+
+<.footer>
+  <.scroll_top />
+</.footer>

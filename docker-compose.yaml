@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  service:
+    build: .
+    container_name: service
+    ports:
+      - 4000:4000
+    tty: true
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+
+  postgres:
+    image: postgres:alpine3.19
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: demeter_dev
