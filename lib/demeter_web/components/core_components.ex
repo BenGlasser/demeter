@@ -114,9 +114,17 @@ defmodule DemeterWeb.CoreComponents do
       end
 
     ~H"""
-    <div
-      id="foodtruck-table"
-      class="
+    <%= if Enum.empty?(@rows.inserts |> IO.inspect()) do %>
+      <div class="flex flex-col items-center justify-center mt-10 text-gray-400">
+        <span> No foodtrucks found! </span>
+        <span class="m-4 text-2xl">
+          Run <span class="bg-slate-900 py-1 px-2 text-red-500">mix hydrate</span>
+        </span>
+      </div>
+    <% else %>
+      <div
+        id="foodtruck-table"
+        class="
         h-[55rem]
         no-scrollbar
         overflow-y-scroll
@@ -126,12 +134,12 @@ defmodule DemeterWeb.CoreComponents do
         table-wrp
         top-0
       "
-    >
-      <table class="max-w-[60rem] mx-auto sm:w-full">
-        <tbody
-          id={@id}
-          phx-update={match?(%Phoenix.LiveView.LiveStream{}, @rows) && "stream"}
-          class="
+      >
+        <table class="max-w-[60rem] mx-auto sm:w-full">
+          <tbody
+            id={@id}
+            phx-update={match?(%Phoenix.LiveView.LiveStream{}, @rows) && "stream"}
+            class="
             divide-transparent
             divide-y
             divide-y-2
@@ -139,11 +147,11 @@ defmodule DemeterWeb.CoreComponents do
             text-gray-200
             text-sm
           "
-        >
-          <tr
-            :for={row <- @rows}
-            id={@row_id && @row_id.(row)}
-            class="
+          >
+            <tr
+              :for={row <- @rows}
+              id={@row_id && @row_id.(row)}
+              class="
               bg-gray-700
               duration-500
               group
@@ -152,19 +160,20 @@ defmodule DemeterWeb.CoreComponents do
               hover:z-40
               text-base
             "
-          >
-            <td
-              :for={{col, i} <- Enum.with_index(@col)}
-              phx-click={@row_click && @row_click.(row)}
-              class={[
-                "p-5 relative",
-                @row_click && "hover:cursor-pointer",
-                i == 0 && "text-center",
-                i == 0 && @row_item.(row) |> elem(1) |> Map.get(:favorite) && "text-lg text-cyan-500"
-              ]}
             >
-              <div class="">
-                <span class="
+              <td
+                :for={{col, i} <- Enum.with_index(@col)}
+                phx-click={@row_click && @row_click.(row)}
+                class={[
+                  "p-5 relative",
+                  @row_click && "hover:cursor-pointer",
+                  i == 0 && "text-center",
+                  i == 0 && @row_item.(row) |> elem(1) |> Map.get(:favorite) &&
+                    "text-lg text-cyan-500"
+                ]}
+              >
+                <div class="">
+                  <span class="
                   -inset-y-px
                   -left-4
                   -right-4
@@ -172,15 +181,16 @@ defmodule DemeterWeb.CoreComponents do
                   group-hover:bg-gray-600
                   sm:rounded-xl
                 " />
-                <span class={["relative", i == 0 && "font-semibold"]}>
-                  <%= render_slot(col, @row_item.(row)) %>
-                </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+                  <span class={["relative", i == 0 && "font-semibold"]}>
+                    <%= render_slot(col, @row_item.(row)) %>
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
     """
   end
 
