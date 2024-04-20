@@ -15,8 +15,8 @@
   - [Thoughts](#thoughts)
 
 # Demeter
-[![tests](https://github.com/benglasser/demeter/actions/workflows/test.yml/badge.svg)](https://github.com/BenGlasser/demeter/actions)
 
+[![tests](https://github.com/benglasser/demeter/actions/workflows/test.yml/badge.svg)](https://github.com/BenGlasser/demeter/actions)
 
 Demeter is a simple web app built with [Elixir](https://elixir-lang.org/) and [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view) which displays a list of foodtrucks in San Fransisco, their addresses, and the type of food they sell. Users can browse the list, select, and save their favorites.
 
@@ -119,14 +119,14 @@ If that completes without errors you're good to go! You should be able to hit ht
 
 #### Mix Hydrate Task
 
-This project contains a mix task for hydrating the database with fresh foodtruck data. This task can be run with the command `mix hydrate` and can be run any time whether the service is running or not.
+We all know how important it is to stay hydrated, and that's why this project contains a mix task for hydrating the database with fresh foodtruck data. This task can be run with the command `mix hydrate` and can be run any time whether the service is running or not.
 
 ## Testing
 
 Currently all the tests are passing. If they don't pass for you, all I can say is "_It works on my machine_" ¯\\\_(ツ)\_/¯
 
 1. you can run all the tests by running `mix test` in the root of this project
-2. individual tests can be run by suppliing a file path to the test task, `mix test </path/to/test.exs>` or `mix test </path/to/test.exs>:<line-number>`
+2. individual tests can be run by supplying a file path to the test task, `mix test </path/to/test.exs>` or `mix test </path/to/test.exs>:<line-number>`
 
 ## Thoughts
 
