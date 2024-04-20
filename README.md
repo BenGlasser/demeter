@@ -15,7 +15,7 @@
   - [Thoughts](#thoughts)
 
 # Demeter
-![tests](https://github.com/benglasser/demeter/actions/workflows/test.yml/badge.svg)
+[![tests](https://github.com/benglasser/demeter/actions/workflows/test.yml/badge.svg)](https://github.com/BenGlasser/demeter/actions)
 
 
 Demeter is a simple web app built with [Elixir](https://elixir-lang.org/) and [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view) which displays a list of foodtrucks in San Fransisco, their addresses, and the type of food they sell. Users can browse the list, select, and save their favorites.
