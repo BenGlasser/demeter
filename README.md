@@ -18,7 +18,7 @@
 
 [![tests](https://github.com/benglasser/demeter/actions/workflows/test.yml/badge.svg)](https://github.com/BenGlasser/demeter/actions)
 
-Demeter is a simple web app built with [Elixir](https://elixir-lang.org/) and [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view) which displays a list of foodtrucks in San Fransisco, their addresses, and the type of food they sell. Users can browse the list, select, and save their favorites.
+Demeter is the greek [goddess of feasts and harvests](https://en.wikipedia.org/wiki/Demeter). It is also a simple web app built with [Elixir](https://elixir-lang.org/) and [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view) which displays a list of foodtrucks in San Fransisco, their addresses, and the type of food they sell. Users can browse the list, select, and save their favorites.
 
 Favorites can be selected and deselected by clicking on the row containing the foodtruck they want to save. Once selected, favorites can be identified by the blue star in the far left of the row. On page load favorites will be grouped first at the top of the list and then in ascending alphabetical order by name.
 
